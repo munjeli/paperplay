@@ -33,7 +33,7 @@ var squareStyle = new Style({
 	strokeWidth: 10,
 	strokeColor: '00AA33',
 	
-})
+});
 
 var oneSquare = new Path.Rectangle({
 	point: [500, 300],

@@ -14,35 +14,164 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="paper/dist/paper.js"></script>
-		<script type="text/paperscript" src="paper/miro.js" canvas="miroBackground"></script>
+		<!--script type="text/paperscript" src="paper/miro.js" canvas="miroBackground"></script-->
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico"/>
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 		<link href="css/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Arvo|Glass+Antiqua' rel='stylesheet' type='text/css'>
-		<script>
-			$(document).ready(function(){
-				alert("works");
-			});
-		</script>
+		<script type="text/javascript">
+		paper.install(window);
+		window.onload = function() {
+		var canvas = document.getElementById("miroBackground");
+		paper.setup(canvas);
+		
+		// first get the function from the keypress
+		var toolChooser 		= new Tool();
+		var beadTool 		= new Tool();
+		var colorShapeTool 	= new Tool();
+		
+		toolChooser.onKeyDown = function (event){
+			var toolChoose = event.key;
+			
+			switch(toolChoose){
+				case "s":
+				randomStar();
+				break;
+
+				case "d":
+				stringOfBeads();
+				break;
+				
+				case "b":
+				makeColorShape("#151C6C");
+				break;
+				
+				default:
+				break;
+			}
+		};
+
+		//place star image randomly across the screen. 
+		function randomStar(){
+				x = Math.floor(Math.random() * window.innerWidth + 1);
+				y = Math.floor(Math.random() * window.innerHeight +1); 
+				starSize = (Math.floor(Math.random() * 10 + 3)) * 0.1;
+				starSize = starSize.toFixed(1);
+				star = new paper.Raster("http://localhost/src/paperplay/images/miro-Star.png");
+				star.scale(parseFloat(starSize));
+				star.position = new Point(x, y);
+		}
+		
+		//drawing tool like a string of dark beads
+		function stringOfBeads(){
+			if(Key.isDown("d")){
+				var beadString;
+				var bead;
+				beadTool.activate();
+							
+				beadTool.onMouseDown = function(event) {
+					beadString = new Path();
+					beadString.strokeColor = "#111";
+					beadString.strokeWidth = "3";
+				};
+				
+				beadTool.onMouseDrag = function(event) {
+					tool.minDistance = 40;
+					beadString.add(event.point);
+					bead = new Path.Circle({
+						center: event.middlePoint,
+						radius: event.delta.length/4
+					});
+						
+					bead.fillColor = "#111";	
+					
+					simplify();
+					smooth();
+				};
+			}
+		}
+		
+		//abstract shapes in several colors	
+		function makeColorShape(colorChoice){	
+			
+			
+			colorShapeTool.activate();
+			var colorShape;
+					
+					colorShapeTool.onMouseDown = function(event){
+						colorShape = new Path;				
+						colorShape.strokeColor = "#111";
+						colorShape.strokeWidth = 3;					
+					};
+					
+					colorShapeTool.onMouseDrag = function(event){
+						if(Key.isDown("b")){	
+						colorShape.add(event.point);
+						colorShape.fillColor = colorChoice;
+						colorShape.opacity = 0.8;
+						colorShape.blendMode = "darker";
+						}
+					};
+					
+					colorShapeTool.onMouseUp = function(event){	
+						colorShape.closed = true;
+						colorShape.simplify();
+						colorShape.smooth();		
+						
+										
+			   		};			
+		}
+		
+		var blogDiv = $(".blogDiv");
+		
+		blogDiv.mouseenter(function(){
+			blogDiv.html("Read Me!");
+		});
+		
+		blogDiv.mouseleave(function(){
+			blogDiv.html("<h2>Blog</h2>");
+		});
+		
+		var contactDiv = $(".contactDiv");
+		
+		contactDiv.mouseenter(function(){
+			contactDiv.html("What do you think?");
+		});
+		
+		contactDiv.mouseleave(function(){
+			contactDiv.html("<h2>Contact</h2>");
+		});
+		
+};
+			
+
+</script>
+
 	</head>
 
 	<body>
 		<div>
-			<canvas id="miroBackground"></canvas>
+			<div class="poetess">
+				<img src="images/poetess.png" alt="poetess"/>
+			</div>
+			<canvas id="miroBackground" resize></canvas>
 			<div class="storyCircle">
 				<p>My name is</p>
 				<p class='fancyCap'>Ele Munjeli</p>
-				<p>I&rsquo;m a Web Developer dedicated to creating great user experiences for communication online</p>			
-				
+				<p>I&rsquo;m a Web Developer who builds creative interactive experiences for communication &amp; deliberation</p>							
 			</div>
-
-			<footer>
-				<p>
-					Type <span class="fancyCap">S</span> for Stars
-				</p>
-			</footer>
+			<div class="blogDiv">
+				<h2>Blog</h2>
+			</div>
+			<div class="contactDiv">
+				<h2>Contact</h2>
+			</div>
+			<div class="instructDiv fancyCap">
+				? 
+			</div>
+	
 		</div>
 	</body>
 </html>

@@ -5,7 +5,27 @@
 
 @import "compass/reset";
 @import "compass/css3";
+$blue:#151C6C;
+$yellow:#B88601;
+$red:#E22D24;
+$green:#539440;
+$dark:#444;
+$light:#F3DCBE;
+$whitish: #fcfefe;
 
+%circlestyle{
+  position: absolute; 
+  z-index: 3;
+  text-align: center;
+  border: 2px solid #D97A60; 
+}
+
+%lightstyle{
+  @include background-image(linear-gradient(#fcfefe, $light));
+  @include text-shadow(white 2px 2px 3px);
+  @include box-shadow(#444 2px 2px 6px inset); 
+  color: $dark; 
+}
 
 html{ 
   background: url("http://localhost/src/paperplay/images/miro-background.jpg") no-repeat center center fixed; 
@@ -13,10 +33,13 @@ html{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 body{
-  position: relative;
   margin: 0;
   padding: 0;
   width: 100%; 
@@ -25,12 +48,15 @@ body{
   font-size: 1.2em;
   line-height: 1.4;
   color: #444;
+  overflow: hidden;
 }
 
 #miroBackground{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   cursor: default;
+  margin: 0;
+  padding: 0;
 }
 
 //clearfix
@@ -55,31 +81,71 @@ h2{
 
 
 .storyCircle{
-  position: absolute; 
-  z-index: 3;
+  @extend %circlestyle;
+  @extend %lightstyle;
   top: 0;
-  left: 4%;
-  margin-top: 4%;
-  padding: 2%;
+  left: 40px;
+  margin-top: 40px;
+  padding: 25px;
   width: 220px; 
   height: 220px;  
-  text-align: center;
-  border: 2px solid #D97A60;
-  @include box-shadow(#444 2px 2px 6px inset);
-  @include background-image(linear-gradient(#fcfefe, #F3DCBE));
   @include border-radius(150px);
-  @include text-shadow(white 2px 2px 3px);
-  .leftp{
-    float:left;
-  }
-  .rightp{
-    float: right;
-  }
 }
 
-footer{
-  position: fixed;
-  bottom: 0;
-  height: 4%;
-  padding: 3%;
+.blogDiv{
+  @extend %circlestyle;
+  top: 15px;
+  left: 300px;
+  width: 60px;
+  height: 60px; 
+  padding: 15px;
+  opacity: 0.9;
+  background: desaturate(lighten($blue, 20%), 15%);
+  @include border-radius(60px);
+  @include text-shadow(lighten($blue, 35%) 2px 2px 3px);
+  color: #111;
+  &:hover{
+    @extend %lightstyle;
+    opacity: 1;
+    cursor: pointer;
+  }
+}  
+.contactDiv{
+  @extend %circlestyle;
+  top: 115px;
+  left: 330px;
+  width: 100px;
+  height: 100px; 
+  padding: 30px 15px 0 15px;
+  opacity: 0.9;
+  background: darken($red, 10%);
+  @include border-radius(75px);
+  @include text-shadow($red 2px 2px 3px);
+  color: #111;
+  &:hover{
+    @extend %lightstyle;
+    opacity: 1;
+    cursor: pointer; 
+  } 
+}
+
+.instructDiv{
+  @extend %circlestyle;
+  top: 300px;
+  left: 20px;
+  width: 40px;
+  height: 40px; 
+  padding: 10px;
+  opacity: 0.9;
+  background: lighten($yellow, 20%);
+  @include border-radius(40px);
+  @include text-shadow(lighten($yellow, 40%) 2px 2px 3px);
+  color: #111;
+}
+
+.poetess{
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  z-index: 4;
 }
