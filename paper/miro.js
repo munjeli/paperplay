@@ -56,6 +56,7 @@ function stringOfBeads(){
 			
 			simplify();
 			smooth();
+			
 		}
 
 }

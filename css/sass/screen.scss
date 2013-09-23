@@ -18,6 +18,9 @@ $whitish: #fcfefe;
   z-index: 3;
   text-align: center;
   border: 2px solid #D97A60; 
+  @media screen and (max-width: 768px){
+     font-size: .8em;
+  }
 }
 
 %lightstyle{
@@ -51,12 +54,24 @@ body{
   overflow: hidden;
 }
 
+.wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
 #miroBackground{
   width: 100%;
   min-height: 100%;
   cursor: default;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 //clearfix
@@ -89,7 +104,12 @@ h2{
   padding: 25px;
   width: 220px; 
   height: 220px;  
+  display: inline;
   @include border-radius(150px);
+  @media screen and (max-width: 768px){
+    width: 180px;
+    height: 180px;
+  }
 }
 
 .blogDiv{
@@ -109,6 +129,11 @@ h2{
     opacity: 1;
     cursor: pointer;
   }
+  @media screen and (max-width: 768px){
+    left: 250px;
+    width: 50px;
+    height: 50px;
+  }
 }  
 .contactDiv{
   @extend %circlestyle;
@@ -127,6 +152,11 @@ h2{
     opacity: 1;
     cursor: pointer; 
   } 
+  @media screen and (max-width: 768px){
+    left: 280px;
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .instructDiv{
@@ -141,11 +171,31 @@ h2{
   @include border-radius(40px);
   @include text-shadow(lighten($yellow, 40%) 2px 2px 3px);
   color: #111;
+  @media screen and (max-width: 768px){
+    top: 250px;
+  }
+  @media screen and (max-width: 420px){
+     display: none;
+  }
+  
 }
 
 .poetess{
   position: absolute;
-  top: 25%;
-  right: 10%;
+  top:25%;
+  right:10%;
+  width:250px;
+  height: auto;
   z-index: 4;
+  img{
+    max-width: 100%;
+    max-height: 600px;
+  }
+  @media screen and (max-width: 768px){
+    width: 200px;
+    top: 40%;
+  }
+  @media screen and (max-width: 420px){
+     display: none;
+  }
 }
