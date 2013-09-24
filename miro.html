@@ -27,6 +27,7 @@
 		
 		//jQuery init for the page
 		$(document).ready(function(){
+			$(".howto").hide();
 			
 		//paperjs functions for the drawing tool	
 		var canvas = document.getElementById("miroBackground");
@@ -89,7 +90,7 @@
 				star.scale(parseFloat(starSize));
 				star.rotate(starRotation);
 				star.position = new Point(x, y);
-				$("li.toolbar > a").removeClass("active");
+				$(".tooldiv").removeClass("active");
 	
 		}
 		
@@ -121,7 +122,7 @@
 					beadString.simplify();
 					beadString.smooth();
 					toolChooser.activate();
-					$("li.toolbar > a").removeClass("active");
+					$(".tooldiv").removeClass("active");
 					
 				};
 				
@@ -164,7 +165,7 @@
 						colorShape.simplify();
 						colorShape.smooth();	
 						toolChooser.activate();
-						$("li.toolbar > a").removeClass("active");
+						$(".tooldiv").removeClass("active");
 									
 			   		};
 			   					
@@ -186,7 +187,7 @@
 				redCirc.fillColor = "#E22D24";
 	
 				toolChooser.activate();
-				$("li.toolbar > a").removeClass("active");
+				$(".tooldiv").removeClass("active");
 			};
 						
 		}
@@ -230,17 +231,19 @@
 		});
 		
 		//toolbar functionality for mobile devices
-		$("li.toolbar > a").click(function(){
+		$("div.tooldiv").click(function(){
 			var theTool = $(this).html();			
 			
 			//show the instructions
 			if(theTool == "?"){
 				$("li.toolbar").css("float", "none");
-				$(this).html("x");			
+				$(this).html("x");
+				$(".howto").show();		
 			}
 			else if(theTool == "x"){
 				$("li.toolbar").css("float", "left");
 				$(this).html("?");
+				$(".howto").hide();
 			}
 			else{
 				$(this).addClass("active");
@@ -277,14 +280,14 @@
 				<h2>Mir&#243;</h2> 
 			</div>
 			<div class="instructDiv">
-				<ul>
-					<li class="toolbar"><a>?</a></li>
-					<li class="toolbar"><a>s</a></li>
-					<li class="toolbar"><a>d</a></li>
-					<li class="toolbar"><a>r</a></li>
-					<li class="toolbar"><a>b</a></li>
-					<li class="toolbar"><a>w</a></li>
-					<li class="toolbar"><a>y</a></li>			
+				<ul>				
+					<li class="toolbar"><div class="tooldiv">?</div><span class="howto"> = hide instructions</span></li>
+					<li class="toolbar"><div class="tooldiv">s</div><span class="howto"> = random stars</span></li>
+					<li class="toolbar"><div class="tooldiv">d</div><span class="howto"> = drag for dark beads</span></li>
+					<li class="toolbar"><div class="tooldiv">r</div><span class="howto"> = drag for red circles</span></li>
+					<li class="toolbar"><div class="tooldiv">b</div><span class="howto"> = drag for blue shape</span></li>
+					<li class="toolbar"><div class="tooldiv">w</div><span class="howto"> = drag for white shape</span></li>
+					<li class="toolbar"><div class="tooldiv">y</div><span class="howto"> = drag for yellow shape</span> </li>			
 				</ul>
 			</div>
 

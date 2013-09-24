@@ -293,36 +293,21 @@ h2 {
   left: 0;
   background: #444444;
   color: #fcfefe;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
-/* line 197, ../sass/screen.scss */
+/* line 198, ../sass/screen.scss */
 .instructDiv ul {
-  margin: 5px;
-  padding: 0;
+  padding: 4px 4px 4px 2px;
   list-style-type: none;
 }
 /* line 202, ../sass/screen.scss */
 .instructDiv ul li {
+  position: relative;
   float: left;
-  text-align: center;
-}
-/* line 205, ../sass/screen.scss */
-.instructDiv ul li a {
-  background: #444444;
-  display: block;
-  width: 30px;
-  text-decoration: none;
-  color: #fcfefe;
-}
-/* line 211, ../sass/screen.scss */
-.instructDiv ul li a:hover {
-  background: #f3dcbe;
-  color: #111;
-}
-@media screen and (max-width: 768px) {
-  /* line 205, ../sass/screen.scss */
-  .instructDiv ul li a {
-    width: 20px;
-  }
+  margin: 0 0 2px 2px;
+  text-align: left;
 }
 @media screen and (max-width: 768px) {
   /* line 191, ../sass/screen.scss */
@@ -331,12 +316,46 @@ h2 {
   }
 }
 
-/* line 225, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
+.tooldiv {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5e5e5e), color-stop(100%, #444444));
+  background: -webkit-linear-gradient(#5e5e5e, #444444);
+  background: -moz-linear-gradient(#5e5e5e, #444444);
+  background: -o-linear-gradient(#5e5e5e, #444444);
+  background: linear-gradient(#5e5e5e, #444444);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  width: 30px;
+  color: #fcfefe;
+  float: left;
+  text-align: center;
+}
+/* line 220, ../sass/screen.scss */
+.tooldiv:hover {
+  background: #f3dcbe;
+  color: #111;
+}
+@media screen and (max-width: 768px) {
+  /* line 213, ../sass/screen.scss */
+  .tooldiv {
+    width: 20px;
+  }
+}
+
+/* line 229, ../sass/screen.scss */
 .active {
   background: #b88601;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
+.howto {
+  margin-left: 4px;
+}
+
+/* line 238, ../sass/screen.scss */
 .poetess {
   position: absolute;
   top: 25%;
@@ -345,20 +364,20 @@ h2 {
   height: auto;
   z-index: 4;
 }
-/* line 237, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .poetess img {
   max-width: 100%;
   max-height: 600px;
 }
 @media screen and (max-width: 768px) {
-  /* line 230, ../sass/screen.scss */
+  /* line 238, ../sass/screen.scss */
   .poetess {
     width: 200px;
     top: 40%;
   }
 }
 @media screen and (max-width: 420px) {
-  /* line 230, ../sass/screen.scss */
+  /* line 238, ../sass/screen.scss */
   .poetess {
     display: none;
   }

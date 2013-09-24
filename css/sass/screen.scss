@@ -194,36 +194,44 @@ h2{
   left: 0;
   background: $dark;
   color: $whitish; 
+  @include border-top-right-radius(4px);
   ul{
-    margin: 5px;
-    padding: 0;
+    padding: 4px 4px 4px 2px;
     list-style-type: none;
   }
   ul li{
+    position: relative;
     float: left;
-    text-align: center;
-    a{
-      background: $dark;
-      display: block;
-      width: 30px;
-      text-decoration: none;
-      color: $whitish;
-      &:hover{
-        background: $light;
-        color: #111;
-      }
-      @media screen and (max-width: 768px){
-        width: 20px;
-      }
+    margin: 0 0 2px 2px;
+    text-align: left;
     }
-  }
   @media screen and (max-width: 768px){
     font-size: 0.8em;
   }
 }
 
+.tooldiv{
+  @include background(linear-gradient(lighten($dark, 10%), $dark));
+  @include border-radius(4px);
+  width: 30px;
+  color: $whitish;
+  float: left;
+  text-align: center;
+  &:hover{
+    background: $light;
+    color: #111;
+  }
+  @media screen and (max-width: 768px){
+    width: 20px;
+  }
+}
+
 .active{
   background: $yellow;
+}
+
+.howto{
+  margin-left: 4px;
 }
 
 
