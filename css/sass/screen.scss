@@ -23,6 +23,20 @@ $whitish: #fcfefe;
   }
 }
 
+%smallcircle{
+  width: 60px;
+  height: 60px; 
+  padding: 15px;
+  opacity: 0.9;
+  color: #111;
+  @include border-radius(60px);
+    &:hover{
+    @extend %lightstyle;
+    opacity: 1;
+    cursor: pointer;
+    }
+}
+
 %lightstyle{
   @include background-image(linear-gradient(#fcfefe, $light));
   @include text-shadow(white 2px 2px 3px);
@@ -40,6 +54,13 @@ html{
   margin: 0;
   height: 100%;
   width: 100%;
+}
+a{
+  color: $blue;
+  text-decoration: none;
+  &:hover{
+    color: $green;
+  }
 }
 
 body{
@@ -114,21 +135,11 @@ h2{
 
 .blogDiv{
   @extend %circlestyle;
+  @extend %smallcircle;
   top: 15px;
   left: 300px;
-  width: 60px;
-  height: 60px; 
-  padding: 15px;
-  opacity: 0.9;
   background: desaturate(lighten($blue, 20%), 15%);
-  @include border-radius(60px);
   @include text-shadow(lighten($blue, 35%) 2px 2px 3px);
-  color: #111;
-  &:hover{
-    @extend %lightstyle;
-    opacity: 1;
-    cursor: pointer;
-  }
   @media screen and (max-width: 768px){
     left: 250px;
     width: 50px;
@@ -159,26 +170,62 @@ h2{
   }
 }
 
-.instructDiv{
+.miroDiv{
   @extend %circlestyle;
+  @extend %smallcircle;
   top: 300px;
   left: 20px;
-  width: 40px;
-  height: 40px; 
-  padding: 10px;
-  opacity: 0.9;
   background: lighten($yellow, 20%);
-  @include border-radius(40px);
   @include text-shadow(lighten($yellow, 40%) 2px 2px 3px);
-  color: #111;
   @media screen and (max-width: 768px){
     top: 250px;
+    width: 50px;
+    height: 50px;
   }
   @media screen and (max-width: 420px){
      display: none;
   }
   
 }
+
+.instructDiv{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: $dark;
+  color: $whitish; 
+  ul{
+    margin: 5px;
+    padding: 0;
+    list-style-type: none;
+  }
+  ul li{
+    float: left;
+    text-align: center;
+    a{
+      background: $dark;
+      display: block;
+      width: 30px;
+      text-decoration: none;
+      color: $whitish;
+      &:hover{
+        background: $light;
+        color: #111;
+      }
+      @media screen and (max-width: 768px){
+        width: 20px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px){
+    font-size: 0.8em;
+  }
+}
+
+.active{
+  background: $yellow;
+}
+
 
 .poetess{
   position: absolute;
