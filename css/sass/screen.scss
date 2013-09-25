@@ -10,6 +10,7 @@ $yellow:#B88601;
 $red:#E22D24;
 $green:#539440;
 $dark:#444;
+$darker: #111;
 $light:#F3DCBE;
 $whitish: #fcfefe;
 
@@ -17,7 +18,7 @@ $whitish: #fcfefe;
   position: absolute; 
   z-index: 3;
   text-align: center;
-  border: 2px solid #D97A60; 
+  border: 2px solid lighten($darker, 10%);
   @media screen and (max-width: 768px){
      font-size: .8em;
   }
@@ -28,7 +29,7 @@ $whitish: #fcfefe;
   height: 60px; 
   padding: 15px;
   opacity: 0.9;
-  color: #111;
+  color: $darker;
   @include border-radius(60px);
     &:hover{
     @extend %lightstyle;
@@ -40,8 +41,23 @@ $whitish: #fcfefe;
 %lightstyle{
   @include background-image(linear-gradient(#fcfefe, $light));
   @include text-shadow(white 2px 2px 3px);
-  @include box-shadow(#444 2px 2px 6px inset); 
   color: $dark; 
+}
+
+%hidenshow{
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  color: $darker;
+  @include border-radius(30px);
+    @media screen and (max-width: 768px){
+    width: 20px;
+    height: 20px;
+  }
+  &:hover{
+    @extend %lightstyle;
+  }
 }
 
 html{ 
@@ -133,6 +149,19 @@ h2{
   }
 }
 
+.hideDiv{
+  @extend %hidenshow;
+  @extend %circlestyle;
+  top: 10px;
+  left: 10px;
+  background: $green;
+  @include text-shadow(lighten($green, 10%) 2px 2px 3px);
+}
+
+#circleHide{
+  cursor: pointer;
+}
+
 .blogDiv{
   @extend %circlestyle;
   @extend %smallcircle;
@@ -157,7 +186,7 @@ h2{
   background: darken($red, 10%);
   @include border-radius(75px);
   @include text-shadow($red 2px 2px 3px);
-  color: #111;
+  color: $darker;
   &:hover{
     @extend %lightstyle;
     opacity: 1;
@@ -192,9 +221,7 @@ h2{
   position: fixed;
   bottom: 0;
   left: 0;
-  background: $dark;
-  color: $whitish; 
-  @include border-top-right-radius(4px);
+  z-index: 6;
   ul{
     padding: 4px 4px 4px 2px;
     list-style-type: none;
@@ -204,22 +231,37 @@ h2{
     float: left;
     margin: 0 0 2px 2px;
     text-align: left;
+    cursor: pointer
     }
   @media screen and (max-width: 768px){
     font-size: 0.8em;
   }
 }
 
+.minInstructDiv{
+  background: $dark;
+  color: $whitish; 
+  @include border-top-right-radius(4px);
+}
+
+.maxInstructDiv{
+  @extend %lightstyle;
+  padding: 10px;
+  border: 2px solid lighten($darker, 10%);
+  @include border-top-right-radius(10px);
+}
+
 .tooldiv{
   @include background(linear-gradient(lighten($dark, 10%), $dark));
   @include border-radius(4px);
+  @include text-shadow(none);
   width: 30px;
   color: $whitish;
   float: left;
   text-align: center;
   &:hover{
-    background: $light;
-    color: #111;
+    background: #D98F72;
+    color: $darker;
   }
   @media screen and (max-width: 768px){
     width: 20px;
@@ -232,6 +274,7 @@ h2{
 
 .howto{
   margin-left: 4px;
+  font-size: .8em;
 }
 
 
@@ -239,12 +282,14 @@ h2{
   position: absolute;
   top:25%;
   right:10%;
-  width:250px;
-  height: auto;
+  width: 250px;
   z-index: 4;
   img{
+    margin: 0;
     max-width: 100%;
-    max-height: 600px;
+    @media screen and (max-width: 768px){
+      height: 360px;
+    }
   }
   @media screen and (max-width: 768px){
     width: 200px;
@@ -254,3 +299,34 @@ h2{
      display: none;
   }
 }
+
+.poetessHide{
+  cursor: pointer;
+  position: absolute;
+  top: 405px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  z-index: 5;
+  color: $darker;
+  font-size: 1.4em;
+  &:hover{
+    color: $whitish;
+  }
+  @media screen and (max-width: 768px){
+    top: 325px; 
+    right: 3px;
+    font-size: 1.2em;
+  }
+}
+.poetessShow{
+  @extend %hidenshow;
+  @extend %circlestyle;
+  top: 65px;
+  left: 10px;
+  background: $red;
+  @include text-shadow(lighten($red, 10%) 2px 2px 3px);
+  
+}
+

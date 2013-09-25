@@ -27,7 +27,23 @@
 		
 		//jQuery init for the page
 		$(document).ready(function(){
-			$(".howto").hide();
+			
+		//jQuery set the objects for divs to manipulate
+		var blogDiv = $(".blogDiv");
+		var contactDiv = $(".contactDiv");
+		var miroDiv = $(".miroDiv");
+		var storyCircle = $(".storyCircle");
+		var hideDiv = $(".hideDiv");
+		var instructDiv = $(".instructDiv");
+		var howTo = $(".howto");
+		var toolDiv = $(".tooldiv");
+		var poetessHide = $(".poetessHide");
+		var poetessShow = $(".poetessShow");
+		var poetess = $(".poetess");
+		
+		hideDiv.hide();
+		howTo.hide();
+		poetessShow.hide();
 			
 		//paperjs functions for the drawing tool	
 		var canvas = document.getElementById("miroBackground");
@@ -39,6 +55,7 @@
 		var beadTool 		= new Tool();
 		var colorShapeTool 	= new Tool();
 		var circleTool		= new Tool();
+		var rastTool 		= new Tool();
 		
 		toolChooser.onKeyDown = function (event){
 			var toolChoose = event.key;
@@ -49,7 +66,7 @@
 
 			switch(toolChoose){
 				case "s":
-				randomStar();
+				randomRast(toolChoose);
 				break;
 
 				case "d":
@@ -70,6 +87,11 @@
 				
 				case "r":
 				redCircle();
+				break;
+				
+				case "m":
+				randomRast(toolChoose);
+				break;
 				
 				default:
 				break;
@@ -78,20 +100,36 @@
 		
 
 		//place rasters randomly across the screen. 
-		function randomStar(){
+		function randomRast(toolChoose){		
+			var rast;
 				/*scaling and rotating the raster*/
-				x = Math.floor(Math.random() * window.innerWidth + 1);
-				y = Math.floor(Math.random() * window.innerHeight +1); 
-				starSize = (Math.floor(Math.random() * 10 + 3)) * 0.1;
-				starSize = starSize.toFixed(1);
-				starWhich = Math.round(Math.random() * 4 + 1);
-				starRotation = Math.round(Math.random() * 360 + 1);
-				star = new paper.Raster("http://localhost/src/paperplay/images/star-" + starWhich + ".png");
-				star.scale(parseFloat(starSize));
-				star.rotate(starRotation);
-				star.position = new Point(x, y);
-				$(".tooldiv").removeClass("active");
-	
+				var x = Math.floor(Math.random() * window.innerWidth + 1);
+				var y = Math.floor(Math.random() * window.innerHeight +1); 
+				rastSize = (Math.floor(Math.random() * 10 + 3)) * 0.1;
+				rastSize = rastSize.toFixed(1);
+				rastRotation = Math.round(Math.random() * 360 + 1);
+				
+				//pick one of the images
+				if(toolChoose == 's'){
+					starWhich = Math.round(Math.random() * 4 + 1);
+					rast = new paper.Raster("http://localhost/src/paperplay/images/star-" + starWhich + ".png");
+					rastMake(rast);	
+				}
+				else{
+					miroWhich = Math.round(Math.random() * 5 + 1);
+					rast = new paper.Raster("http://localhost/src/paperplay/images/miro-" + miroWhich + ".png");
+					rastMake(rast);		
+				}
+				
+				//put the image on the canvas
+				function rastMake(rast){
+					rast.scale(parseFloat(rastSize));
+					rast.rotate(rastRotation);
+					rast.position = new Point(x, y);
+				}
+			
+					toolDiv.removeClass("active");
+			
 		}
 		
 		//drawing tool like a string of dark beads
@@ -122,7 +160,7 @@
 					beadString.simplify();
 					beadString.smooth();
 					toolChooser.activate();
-					$(".tooldiv").removeClass("active");
+					toolDiv.removeClass("active");
 					
 				};
 				
@@ -165,7 +203,7 @@
 						colorShape.simplify();
 						colorShape.smooth();	
 						toolChooser.activate();
-						$(".tooldiv").removeClass("active");
+						toolDiv.removeClass("active");
 									
 			   		};
 			   					
@@ -187,13 +225,12 @@
 				redCirc.fillColor = "#E22D24";
 	
 				toolChooser.activate();
-				$(".tooldiv").removeClass("active");
+				toolDiv.removeClass("active");
 			};
 						
 		}
 		
 		//jQuery functions to show and hide circular divs on the page
-		var blogDiv = $(".blogDiv");
 		
 		blogDiv.mouseenter(function(){
 			blogDiv.html("Read Me!");
@@ -202,9 +239,7 @@
 		blogDiv.mouseleave(function(){
 			blogDiv.html("<h2>Blog</h2>");
 		});
-		
-		var contactDiv = $(".contactDiv");
-		
+			
 		contactDiv.mouseenter(function(){
 			contactDiv.html("What do you think?");
 		});
@@ -212,8 +247,6 @@
 		contactDiv.mouseleave(function(){
 			contactDiv.html("<h2>Contact</h2>");
 		});
-		
-		var miroDiv = $(".miroDiv");
 			
 		miroDiv.mouseenter(function(){
 			miroDiv.html("How to...");
@@ -223,27 +256,54 @@
 			miroDiv.html("<h2>Mir&#243;</h2>");	
 		});
 		
-		var storyCircle = $(".storyCircle");
-		
 		miroDiv.click(function(){
 			storyCircle.html("This page is an</br>homage to the <a href='http://en.wikipedia.org/wiki/Constellations_(Mir%C3%B3)#Description' target='_blank'>Constellations </a>series by Joan Mir&#243;. Use the toolbar bottom left to create your own Constellation." +
 			"<div id='circleHide'><a>Hide circles now.</a></div>");
 		});
 		
+		//hide and show circled content
+		storyCircle.on("click", "#circleHide", function(){
+			hideDiv.show();
+			storyCircle.hide();
+			blogDiv.hide();
+			contactDiv.hide();
+			miroDiv.hide();
+		});
+		
+		hideDiv.click(function(){
+			hideDiv.hide();
+			storyCircle.show();
+			blogDiv.show();
+			contactDiv.show();
+			miroDiv.show();
+		});
+		
+		//hide and show the poetess
+		poetessHide.click(function(){
+			poetess.hide();
+			poetessShow.show();
+		});
+		
+		poetessShow.click(function(){
+			poetess.show();
+			poetessShow.hide();
+		});
 		//toolbar functionality for mobile devices
-		$("div.tooldiv").click(function(){
+		toolDiv.click(function(){
 			var theTool = $(this).html();			
 			
 			//show the instructions
 			if(theTool == "?"){
 				$("li.toolbar").css("float", "none");
 				$(this).html("x");
-				$(".howto").show();		
+				howTo.show();
+				instructDiv.removeClass('minInstructDiv').addClass('maxInstructDiv');		
 			}
 			else if(theTool == "x"){
 				$("li.toolbar").css("float", "left");
 				$(this).html("?");
-				$(".howto").hide();
+				howTo.hide();
+				instructDiv.removeClass('maxInstructDiv').addClass('minInstructDiv');	
 			}
 			else{
 				$(this).addClass("active");
@@ -262,9 +322,12 @@
 	<body>
 		
 			<div class="poetess">
-				<img src="images/poetess.svg" alt="poetess"/>
+				<img src="images/poetess-small.svg" alt="poetess"/>
+				<div class='poetessHide'>x</div>
 			</div>
 			<canvas id="miroBackground" resize></canvas>
+			<div class="hideDiv">O</div>
+			<div class="poetessShow">O</div>
 			<div class="storyCircle">
 				<p>My name is</p>
 				<p class='fancyCap'>Ele Munjeli</p>
@@ -279,7 +342,11 @@
 			<div class="miroDiv">
 				<h2>Mir&#243;</h2> 
 			</div>
-			<div class="instructDiv">
+			<div class="instructDiv minInstructDiv">
+				<div class="howto">
+					Click to select a tool or use <br/>your keyboard.
+					<hr />
+				</div>
 				<ul>				
 					<li class="toolbar"><div class="tooldiv">?</div><span class="howto"> = hide instructions</span></li>
 					<li class="toolbar"><div class="tooldiv">s</div><span class="howto"> = random stars</span></li>
@@ -287,8 +354,13 @@
 					<li class="toolbar"><div class="tooldiv">r</div><span class="howto"> = drag for red circles</span></li>
 					<li class="toolbar"><div class="tooldiv">b</div><span class="howto"> = drag for blue shape</span></li>
 					<li class="toolbar"><div class="tooldiv">w</div><span class="howto"> = drag for white shape</span></li>
-					<li class="toolbar"><div class="tooldiv">y</div><span class="howto"> = drag for yellow shape</span> </li>			
+					<li class="toolbar"><div class="tooldiv">y</div><span class="howto"> = drag for yellow shape</span> </li>	
+					<li class="toolbar"><div class="tooldiv">m</div><span class="howto"> = miro&rsquo;s forms</span> </li>					
 				</ul>
+				<div class="howto">
+					<hr />
+					Slow computer? Make the<br />window smaller :)
+				</div>
 			</div>
 
 	</body>

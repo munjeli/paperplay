@@ -67,54 +67,72 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 16, ../sass/screen.scss */
-.storyCircle, .blogDiv, .contactDiv, .miroDiv {
+/* line 17, ../sass/screen.scss */
+.storyCircle, .hideDiv, .blogDiv, .contactDiv, .miroDiv, .poetessShow {
   position: absolute;
   z-index: 3;
   text-align: center;
-  border: 2px solid #D97A60;
+  border: 2px solid #2b2b2b;
 }
 @media screen and (max-width: 768px) {
-  /* line 16, ../sass/screen.scss */
-  .storyCircle, .blogDiv, .contactDiv, .miroDiv {
+  /* line 17, ../sass/screen.scss */
+  .storyCircle, .hideDiv, .blogDiv, .contactDiv, .miroDiv, .poetessShow {
     font-size: .8em;
   }
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .blogDiv, .miroDiv {
   width: 60px;
   height: 60px;
   padding: 15px;
   opacity: 0.9;
-  color: #111;
+  color: #111111;
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   -ms-border-radius: 60px;
   -o-border-radius: 60px;
   border-radius: 60px;
 }
-/* line 33, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 .blogDiv:hover, .miroDiv:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-/* line 40, ../sass/screen.scss */
-.blogDiv:hover, .miroDiv:hover, .storyCircle, .contactDiv:hover {
+/* line 41, ../sass/screen.scss */
+.blogDiv:hover, .miroDiv:hover, .hideDiv:hover, .poetessShow:hover, .storyCircle, .contactDiv:hover, .maxInstructDiv {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfefe), color-stop(100%, #f3dcbe));
   background-image: -webkit-linear-gradient(#fcfefe, #f3dcbe);
   background-image: -moz-linear-gradient(#fcfefe, #f3dcbe);
   background-image: -o-linear-gradient(#fcfefe, #f3dcbe);
   background-image: linear-gradient(#fcfefe, #f3dcbe);
   text-shadow: white 2px 2px 3px;
-  -webkit-box-shadow: #444444 2px 2px 6px inset;
-  -moz-box-shadow: #444444 2px 2px 6px inset;
-  box-shadow: #444444 2px 2px 6px inset;
   color: #444444;
 }
 
 /* line 47, ../sass/screen.scss */
+.hideDiv, .poetessShow {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  color: #111111;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+@media screen and (max-width: 768px) {
+  /* line 47, ../sass/screen.scss */
+  .hideDiv, .poetessShow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* line 63, ../sass/screen.scss */
 html {
   background: url("http://localhost/src/paperplay/images/miro-background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -127,17 +145,17 @@ html {
   width: 100%;
 }
 
-/* line 58, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 a {
   color: #151c6c;
   text-decoration: none;
 }
-/* line 61, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 a:hover {
   color: #539440;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 body {
   margin: 0;
   padding: 0;
@@ -150,7 +168,7 @@ body {
   overflow: hidden;
 }
 
-/* line 78, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .wrapper {
   position: absolute;
   top: 0;
@@ -162,7 +180,7 @@ body {
   overflow: hidden;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 #miroBackground {
   width: 100%;
   min-height: 100%;
@@ -172,21 +190,21 @@ body {
   overflow: hidden;
 }
 
-/* line 99, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .group:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 105, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 .fancyCap {
   font-family: "Glass Antiqua", cursive, serif;
   font-size: 2em;
   line-height: 1.2;
 }
 
-/* line 111, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 h2 {
   font-family: "Glass Antiqua", cursive, serif;
   font-weight: 500;
@@ -194,7 +212,7 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* line 119, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 .storyCircle {
   top: 0;
   left: 40px;
@@ -210,14 +228,27 @@ h2 {
   border-radius: 150px;
 }
 @media screen and (max-width: 768px) {
-  /* line 119, ../sass/screen.scss */
+  /* line 135, ../sass/screen.scss */
   .storyCircle {
     width: 180px;
     height: 180px;
   }
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
+.hideDiv {
+  top: 10px;
+  left: 10px;
+  background: #539440;
+  text-shadow: #69b453 2px 2px 3px;
+}
+
+/* line 161, ../sass/screen.scss */
+#circleHide {
+  cursor: pointer;
+}
+
+/* line 165, ../sass/screen.scss */
 .blogDiv {
   top: 15px;
   left: 300px;
@@ -225,7 +256,7 @@ h2 {
   text-shadow: #5560de 2px 2px 3px;
 }
 @media screen and (max-width: 768px) {
-  /* line 136, ../sass/screen.scss */
+  /* line 165, ../sass/screen.scss */
   .blogDiv {
     left: 250px;
     width: 50px;
@@ -233,7 +264,7 @@ h2 {
   }
 }
 
-/* line 149, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 .contactDiv {
   top: 115px;
   left: 330px;
@@ -248,15 +279,15 @@ h2 {
   -o-border-radius: 75px;
   border-radius: 75px;
   text-shadow: #e22d24 2px 2px 3px;
-  color: #111;
+  color: #111111;
 }
-/* line 161, ../sass/screen.scss */
+/* line 190, ../sass/screen.scss */
 .contactDiv:hover {
   opacity: 1;
   cursor: pointer;
 }
 @media screen and (max-width: 768px) {
-  /* line 149, ../sass/screen.scss */
+  /* line 178, ../sass/screen.scss */
   .contactDiv {
     left: 280px;
     width: 80px;
@@ -264,7 +295,7 @@ h2 {
   }
 }
 
-/* line 173, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 .miroDiv {
   top: 300px;
   left: 20px;
@@ -272,7 +303,7 @@ h2 {
   text-shadow: #fede87 2px 2px 3px;
 }
 @media screen and (max-width: 768px) {
-  /* line 173, ../sass/screen.scss */
+  /* line 202, ../sass/screen.scss */
   .miroDiv {
     top: 250px;
     width: 50px;
@@ -280,43 +311,58 @@ h2 {
   }
 }
 @media screen and (max-width: 420px) {
-  /* line 173, ../sass/screen.scss */
+  /* line 202, ../sass/screen.scss */
   .miroDiv {
     display: none;
   }
 }
 
-/* line 191, ../sass/screen.scss */
+/* line 220, ../sass/screen.scss */
 .instructDiv {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 6;
+}
+/* line 225, ../sass/screen.scss */
+.instructDiv ul {
+  padding: 4px 4px 4px 2px;
+  list-style-type: none;
+}
+/* line 229, ../sass/screen.scss */
+.instructDiv ul li {
+  position: relative;
+  float: left;
+  margin: 0 0 2px 2px;
+  text-align: left;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  /* line 220, ../sass/screen.scss */
+  .instructDiv {
+    font-size: 0.8em;
+  }
+}
+
+/* line 241, ../sass/screen.scss */
+.minInstructDiv {
   background: #444444;
   color: #fcfefe;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 198, ../sass/screen.scss */
-.instructDiv ul {
-  padding: 4px 4px 4px 2px;
-  list-style-type: none;
-}
-/* line 202, ../sass/screen.scss */
-.instructDiv ul li {
-  position: relative;
-  float: left;
-  margin: 0 0 2px 2px;
-  text-align: left;
-}
-@media screen and (max-width: 768px) {
-  /* line 191, ../sass/screen.scss */
-  .instructDiv {
-    font-size: 0.8em;
-  }
+
+/* line 247, ../sass/screen.scss */
+.maxInstructDiv {
+  padding: 10px;
+  border: 2px solid #2b2b2b;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 .tooldiv {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5e5e5e), color-stop(100%, #444444));
   background: -webkit-linear-gradient(#5e5e5e, #444444);
@@ -328,57 +374,98 @@ h2 {
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+  text-shadow: none;
   width: 30px;
   color: #fcfefe;
   float: left;
   text-align: center;
 }
-/* line 220, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 .tooldiv:hover {
-  background: #f3dcbe;
-  color: #111;
+  background: #D98F72;
+  color: #111111;
 }
 @media screen and (max-width: 768px) {
-  /* line 213, ../sass/screen.scss */
+  /* line 254, ../sass/screen.scss */
   .tooldiv {
     width: 20px;
   }
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 .active {
   background: #b88601;
 }
 
-/* line 233, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 .howto {
   margin-left: 4px;
+  font-size: .8em;
 }
 
-/* line 238, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .poetess {
   position: absolute;
   top: 25%;
   right: 10%;
   width: 250px;
-  height: auto;
   z-index: 4;
 }
-/* line 245, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 .poetess img {
+  margin: 0;
   max-width: 100%;
-  max-height: 600px;
 }
 @media screen and (max-width: 768px) {
-  /* line 238, ../sass/screen.scss */
+  /* line 287, ../sass/screen.scss */
+  .poetess img {
+    height: 360px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 281, ../sass/screen.scss */
   .poetess {
     width: 200px;
     top: 40%;
   }
 }
 @media screen and (max-width: 420px) {
-  /* line 238, ../sass/screen.scss */
+  /* line 281, ../sass/screen.scss */
   .poetess {
     display: none;
   }
+}
+
+/* line 303, ../sass/screen.scss */
+.poetessHide {
+  cursor: pointer;
+  position: absolute;
+  top: 405px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  z-index: 5;
+  color: #111111;
+  font-size: 1.4em;
+}
+/* line 314, ../sass/screen.scss */
+.poetessHide:hover {
+  color: #fcfefe;
+}
+@media screen and (max-width: 768px) {
+  /* line 303, ../sass/screen.scss */
+  .poetessHide {
+    top: 325px;
+    right: 3px;
+    font-size: 1.2em;
+  }
+}
+
+/* line 323, ../sass/screen.scss */
+.poetessShow {
+  top: 65px;
+  left: 10px;
+  background: #e22d24;
+  text-shadow: #e85851 2px 2px 3px;
 }
