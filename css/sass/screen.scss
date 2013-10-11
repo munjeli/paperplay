@@ -1,0 +1,332 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+$blue:#151C6C;
+$yellow:#B88601;
+$red:#E22D24;
+$green:#539440;
+$dark:#444;
+$darker: #111;
+$light:#F3DCBE;
+$whitish: #fcfefe;
+
+%circlestyle{
+  position: absolute; 
+  z-index: 3;
+  text-align: center;
+  border: 2px solid lighten($darker, 10%);
+  @media screen and (max-width: 768px){
+     font-size: .8em;
+  }
+}
+
+%smallcircle{
+  width: 60px;
+  height: 60px; 
+  padding: 15px;
+  opacity: 0.9;
+  color: $darker;
+  @include border-radius(60px);
+    &:hover{
+    @extend %lightstyle;
+    opacity: 1;
+    cursor: pointer;
+    }
+}
+
+%lightstyle{
+  @include background-image(linear-gradient(#fcfefe, $light));
+  @include text-shadow(white 2px 2px 3px);
+  color: $dark; 
+}
+
+%hidenshow{
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  color: $darker;
+  @include border-radius(30px);
+    @media screen and (max-width: 768px){
+    width: 20px;
+    height: 20px;
+  }
+  &:hover{
+    @extend %lightstyle;
+  }
+}
+
+html{ 
+  background: url("http://localhost/src/paperplay/images/miro-background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+a{
+  color: $blue;
+  text-decoration: none;
+  &:hover{
+    color: $green;
+  }
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  height: 100%; 
+  font-family: "Arvo", serif;
+  font-size: 1.2em;
+  line-height: 1.4;
+  color: #444;
+  overflow: hidden;
+}
+
+.wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+#miroBackground{
+  width: 100%;
+  min-height: 100%;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+//clearfix
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fancyCap{
+  font-family: "Glass Antiqua", cursive, serif;
+  font-size: 2em;
+  line-height: 1.2; 
+}
+
+h2{
+  font-family: "Glass Antiqua", cursive, serif;
+  font-weight: 500;
+  font-size: 1.7em;
+  letter-spacing: 1px; 
+}
+
+
+.storyCircle{
+  @extend %circlestyle;
+  @extend %lightstyle;
+  top: 0;
+  left: 40px;
+  margin-top: 40px;
+  padding: 25px;
+  width: 220px; 
+  height: 220px;  
+  display: inline;
+  @include border-radius(150px);
+  @media screen and (max-width: 768px){
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.hideDiv{
+  @extend %hidenshow;
+  @extend %circlestyle;
+  top: 10px;
+  left: 10px;
+  background: $green;
+  @include text-shadow(lighten($green, 10%) 2px 2px 3px);
+}
+
+#circleHide{
+  cursor: pointer;
+}
+
+.blogDiv{
+  @extend %circlestyle;
+  @extend %smallcircle;
+  top: 15px;
+  left: 300px;
+  background: desaturate(lighten($blue, 20%), 15%);
+  @include text-shadow(lighten($blue, 35%) 2px 2px 3px);
+  @media screen and (max-width: 768px){
+    left: 250px;
+    width: 50px;
+    height: 50px;
+  }
+}  
+.contactDiv{
+  @extend %circlestyle;
+  top: 115px;
+  left: 330px;
+  width: 100px;
+  height: 100px; 
+  padding: 30px 15px 0 15px;
+  opacity: 0.9;
+  background: darken($red, 10%);
+  @include border-radius(75px);
+  @include text-shadow($red 2px 2px 3px);
+  color: $darker;
+  &:hover{
+    @extend %lightstyle;
+    opacity: 1;
+    cursor: pointer; 
+  } 
+  @media screen and (max-width: 768px){
+    left: 280px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.miroDiv{
+  @extend %circlestyle;
+  @extend %smallcircle;
+  top: 300px;
+  left: 20px;
+  background: lighten($yellow, 20%);
+  @include text-shadow(lighten($yellow, 40%) 2px 2px 3px);
+  @media screen and (max-width: 768px){
+    top: 250px;
+    width: 50px;
+    height: 50px;
+  }
+  @media screen and (max-width: 420px){
+     display: none;
+  }
+  
+}
+
+.instructDiv{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  ul{
+    padding: 4px 4px 4px 2px;
+    list-style-type: none;
+  }
+  ul li{
+    position: relative;
+    float: left;
+    margin: 0 0 2px 2px;
+    text-align: left;
+    cursor: pointer
+    }
+  @media screen and (max-width: 768px){
+    font-size: 0.8em;
+  }
+}
+
+.minInstructDiv{
+  background: $dark;
+  color: $whitish; 
+  @include border-top-right-radius(4px);
+}
+
+.maxInstructDiv{
+  @extend %lightstyle;
+  padding: 10px;
+  border: 2px solid lighten($darker, 10%);
+  @include border-top-right-radius(10px);
+}
+
+.tooldiv{
+  @include background(linear-gradient(lighten($dark, 10%), $dark));
+  @include border-radius(4px);
+  @include text-shadow(none);
+  width: 30px;
+  color: $whitish;
+  float: left;
+  text-align: center;
+  &:hover{
+    background: #D98F72;
+    color: $darker;
+  }
+  @media screen and (max-width: 768px){
+    width: 20px;
+  }
+}
+
+.active{
+  background: $yellow;
+}
+
+.howto{
+  margin-left: 4px;
+  font-size: .8em;
+}
+
+
+.poetess{
+  position: absolute;
+  top:25%;
+  right:10%;
+  width: 250px;
+  z-index: 4;
+  img{
+    margin: 0;
+    max-width: 100%;
+    @media screen and (max-width: 768px){
+      height: 360px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    width: 200px;
+    top: 40%;
+  }
+  @media screen and (max-width: 420px){
+     display: none;
+  }
+}
+
+.poetessHide{
+  cursor: pointer;
+  position: absolute;
+  top: 405px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  z-index: 5;
+  color: $darker;
+  font-size: 1.4em;
+  &:hover{
+    color: $whitish;
+  }
+  @media screen and (max-width: 768px){
+    top: 325px; 
+    right: 3px;
+    font-size: 1.2em;
+  }
+}
+.poetessShow{
+  @extend %hidenshow;
+  @extend %circlestyle;
+  top: 65px;
+  left: 10px;
+  background: $red;
+  @include text-shadow(lighten($red, 10%) 2px 2px 3px);
+  
+}
+
