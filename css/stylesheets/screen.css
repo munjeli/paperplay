@@ -1,0 +1,471 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 17, ../sass/screen.scss */
+.storyCircle, .hideDiv, .blogDiv, .contactDiv, .miroDiv, .poetessShow {
+  position: absolute;
+  z-index: 3;
+  text-align: center;
+  border: 2px solid #2b2b2b;
+}
+@media screen and (max-width: 768px) {
+  /* line 17, ../sass/screen.scss */
+  .storyCircle, .hideDiv, .blogDiv, .contactDiv, .miroDiv, .poetessShow {
+    font-size: .8em;
+  }
+}
+
+/* line 27, ../sass/screen.scss */
+.blogDiv, .miroDiv {
+  width: 60px;
+  height: 60px;
+  padding: 15px;
+  opacity: 0.9;
+  color: #111111;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+}
+/* line 34, ../sass/screen.scss */
+.blogDiv:hover, .miroDiv:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* line 41, ../sass/screen.scss */
+.blogDiv:hover, .miroDiv:hover, .hideDiv:hover, .poetessShow:hover, .storyCircle, .contactDiv:hover, .maxInstructDiv {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fcfefe), color-stop(100%, #f3dcbe));
+  background-image: -webkit-linear-gradient(#fcfefe, #f3dcbe);
+  background-image: -moz-linear-gradient(#fcfefe, #f3dcbe);
+  background-image: -o-linear-gradient(#fcfefe, #f3dcbe);
+  background-image: linear-gradient(#fcfefe, #f3dcbe);
+  text-shadow: white 2px 2px 3px;
+  color: #444444;
+}
+
+/* line 47, ../sass/screen.scss */
+.hideDiv, .poetessShow {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  color: #111111;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+@media screen and (max-width: 768px) {
+  /* line 47, ../sass/screen.scss */
+  .hideDiv, .poetessShow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* line 63, ../sass/screen.scss */
+html {
+  background: url("http://localhost/src/paperplay/images/miro-background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 74, ../sass/screen.scss */
+a {
+  color: #151c6c;
+  text-decoration: none;
+}
+/* line 77, ../sass/screen.scss */
+a:hover {
+  color: #539440;
+}
+
+/* line 82, ../sass/screen.scss */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Arvo", serif;
+  font-size: 1.2em;
+  line-height: 1.4;
+  color: #444;
+  overflow: hidden;
+}
+
+/* line 94, ../sass/screen.scss */
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+/* line 105, ../sass/screen.scss */
+#miroBackground {
+  width: 100%;
+  min-height: 100%;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 115, ../sass/screen.scss */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 121, ../sass/screen.scss */
+.fancyCap {
+  font-family: "Glass Antiqua", cursive, serif;
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+/* line 127, ../sass/screen.scss */
+h2 {
+  font-family: "Glass Antiqua", cursive, serif;
+  font-weight: 500;
+  font-size: 1.7em;
+  letter-spacing: 1px;
+}
+
+/* line 135, ../sass/screen.scss */
+.storyCircle {
+  top: 0;
+  left: 40px;
+  margin-top: 40px;
+  padding: 25px;
+  width: 220px;
+  height: 220px;
+  display: inline;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+}
+@media screen and (max-width: 768px) {
+  /* line 135, ../sass/screen.scss */
+  .storyCircle {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* line 152, ../sass/screen.scss */
+.hideDiv {
+  top: 10px;
+  left: 10px;
+  background: #539440;
+  text-shadow: #69b453 2px 2px 3px;
+}
+
+/* line 161, ../sass/screen.scss */
+#circleHide {
+  cursor: pointer;
+}
+
+/* line 165, ../sass/screen.scss */
+.blogDiv {
+  top: 15px;
+  left: 300px;
+  background: #3741b0;
+  text-shadow: #5560de 2px 2px 3px;
+}
+@media screen and (max-width: 768px) {
+  /* line 165, ../sass/screen.scss */
+  .blogDiv {
+    left: 250px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* line 178, ../sass/screen.scss */
+.contactDiv {
+  top: 115px;
+  left: 330px;
+  width: 100px;
+  height: 100px;
+  padding: 30px 15px 0 15px;
+  opacity: 0.9;
+  background: #ba2019;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  -ms-border-radius: 75px;
+  -o-border-radius: 75px;
+  border-radius: 75px;
+  text-shadow: #e22d24 2px 2px 3px;
+  color: #111111;
+}
+/* line 190, ../sass/screen.scss */
+.contactDiv:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  /* line 178, ../sass/screen.scss */
+  .contactDiv {
+    left: 280px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* line 202, ../sass/screen.scss */
+.miroDiv {
+  top: 300px;
+  left: 20px;
+  background: #fec221;
+  text-shadow: #fede87 2px 2px 3px;
+}
+@media screen and (max-width: 768px) {
+  /* line 202, ../sass/screen.scss */
+  .miroDiv {
+    top: 250px;
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 420px) {
+  /* line 202, ../sass/screen.scss */
+  .miroDiv {
+    display: none;
+  }
+}
+
+/* line 220, ../sass/screen.scss */
+.instructDiv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+}
+/* line 225, ../sass/screen.scss */
+.instructDiv ul {
+  padding: 4px 4px 4px 2px;
+  list-style-type: none;
+}
+/* line 229, ../sass/screen.scss */
+.instructDiv ul li {
+  position: relative;
+  float: left;
+  margin: 0 0 2px 2px;
+  text-align: left;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  /* line 220, ../sass/screen.scss */
+  .instructDiv {
+    font-size: 0.8em;
+  }
+}
+
+/* line 241, ../sass/screen.scss */
+.minInstructDiv {
+  background: #444444;
+  color: #fcfefe;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* line 247, ../sass/screen.scss */
+.maxInstructDiv {
+  padding: 10px;
+  border: 2px solid #2b2b2b;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* line 254, ../sass/screen.scss */
+.tooldiv {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5e5e5e), color-stop(100%, #444444));
+  background: -webkit-linear-gradient(#5e5e5e, #444444);
+  background: -moz-linear-gradient(#5e5e5e, #444444);
+  background: -o-linear-gradient(#5e5e5e, #444444);
+  background: linear-gradient(#5e5e5e, #444444);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  text-shadow: none;
+  width: 30px;
+  color: #fcfefe;
+  float: left;
+  text-align: center;
+}
+/* line 262, ../sass/screen.scss */
+.tooldiv:hover {
+  background: #D98F72;
+  color: #111111;
+}
+@media screen and (max-width: 768px) {
+  /* line 254, ../sass/screen.scss */
+  .tooldiv {
+    width: 20px;
+  }
+}
+
+/* line 271, ../sass/screen.scss */
+.active {
+  background: #b88601;
+}
+
+/* line 275, ../sass/screen.scss */
+.howto {
+  margin-left: 4px;
+  font-size: .8em;
+}
+
+/* line 281, ../sass/screen.scss */
+.poetess {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  width: 250px;
+  z-index: 4;
+}
+/* line 287, ../sass/screen.scss */
+.poetess img {
+  margin: 0;
+  max-width: 100%;
+}
+@media screen and (max-width: 768px) {
+  /* line 287, ../sass/screen.scss */
+  .poetess img {
+    height: 360px;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 281, ../sass/screen.scss */
+  .poetess {
+    width: 200px;
+    top: 40%;
+  }
+}
+@media screen and (max-width: 420px) {
+  /* line 281, ../sass/screen.scss */
+  .poetess {
+    display: none;
+  }
+}
+
+/* line 303, ../sass/screen.scss */
+.poetessHide {
+  cursor: pointer;
+  position: absolute;
+  top: 405px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  z-index: 5;
+  color: #111111;
+  font-size: 1.4em;
+}
+/* line 314, ../sass/screen.scss */
+.poetessHide:hover {
+  color: #fcfefe;
+}
+@media screen and (max-width: 768px) {
+  /* line 303, ../sass/screen.scss */
+  .poetessHide {
+    top: 325px;
+    right: 3px;
+    font-size: 1.2em;
+  }
+}
+
+/* line 323, ../sass/screen.scss */
+.poetessShow {
+  top: 65px;
+  left: 10px;
+  background: #e22d24;
+  text-shadow: #e85851 2px 2px 3px;
+}
